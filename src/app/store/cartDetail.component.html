@@ -3,20 +3,20 @@
 </div>  
 
 <div class="m-a-1">
-    <h2 class="text-xs-center">Your Cart</h2>
+    <h2 class="text-xs-center">您的购物车</h2>
     <table class="table table-bordered table-striped p-a-1">
         <thead>
             <tr>
-                <th>Quantity</th>
-                <th>Product</th>
-                <th class="text-xs-right">Price</th>
-                <th class="text-xs-right">Subtotal</th>
+                <th>数量</th>
+                <th>商品</th>
+                <th class="text-xs-right">价格</th>
+                <th class="text-xs-right">单价</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngIf="cart.lines.length == 0">
                 <td colspan="4" class="text-xs-center">
-                    Your cart is empty
+                    您的购物车是空的
                 </td>
             </tr>
             <tr *ngFor="let line of cart.lines">
@@ -29,10 +29,10 @@
                 </td>
                 <td>{{line.product.name}}</td>
                 <td class="text-xs-right">
-                    {{line.product.price | currency:"USD":true:"2.2-2"}}
+                    {{line.product.price | currency:"CNY":true:"2.2-2"}}
                 </td>
                 <td class="text-xs-right">
-                    {{(line.lineTotal) | currency:"USD":true:"2.2-2" }}
+                    {{(line.lineTotal) | currency:"CNY":true:"2.2-2" }}
                 </td>
                 <td class="text-xs-center">
                     <button class="btn btn-sm btn-danger"
@@ -46,16 +46,16 @@
             <tr>
                 <td colspan="3" class="text-xs-right">Total:</td>
                 <td class="text-xs-right">
-                    {{cart.cartPrice | currency:"USD":true:"2.2-2"}}
+                    {{cart.cartPrice | currency:"CNY":true:"2.2-2"}}
                 </td>
             </tr>
         </tfoot>
     </table>
 </div>
 <div class="text-xs-center">
-    <button class="btn btn-primary" routerLink="/store">Continue Shopping</button>
+    <button class="btn btn-primary" routerLink="/store">继续购物</button>
     <button class="btn btn-secondary" routerLink="/checkout" 
             [disabled]="cart.lines.length == 0">
-        Checkout
+        结帐
     </button>
 </div>

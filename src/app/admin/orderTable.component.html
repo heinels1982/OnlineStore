@@ -1,27 +1,27 @@
 <div class="form-check">
     <label class="form-check-label">
     <input type="checkbox" class="form-check-input" [(ngModel)]="includeShipped"/>        
-        Display Shipped Orders
+       显示已经发送的订单
     </label>
 </div>
 <table class="table table-sm">
     <thead>
-        <tr><th>Name</th><th>Zip</th><th colspan="2">Cart</th><th></th></tr>
+        <tr><th>姓名</th><th>邮编</th><th colspan="2">购物车</th><th></th></tr>
     </thead>
     <tbody>
         <tr *ngIf="getOrders().length == 0">
-            <td colspan="5">There are no orders</td>
+            <td colspan="5">没有订单</td>
         </tr>
         <ng-template ngFor let-o [ngForOf]="getOrders()">
             <tr>
                 <td>{{o.name}}</td><td>{{o.zip}}</td>
-                <th>Product</th><th>Quantity</th>
+                <th>商品</th><th>数量</th>
                 <td>
                     <button class="btn btn-warning" (click)="markShipped(o)">
-                        Ship
+                        发货
                     </button>
                     <button class="btn btn-danger" (click)="delete(o.id)">
-                        Delete
+                        删除
                     </button>
                 </td>
             </tr>
